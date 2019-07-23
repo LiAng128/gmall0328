@@ -1,7 +1,7 @@
 package com.liang.gmall.user.service.impl;
 
 import com.alibaba.dubbo.config.annotation.Service;
-import com.liang.gmal.service.UmsMemberService;
+import com.liang.gmall.service.UmsMemberService;
 import com.liang.gmall.beans.UmsMember;
 import com.liang.gmall.user.mapper.UmsMemberMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +30,27 @@ public class UmsMemberServiceImpl implements UmsMemberService {
         umsMember.setId(id);
 
         return umsMemberMapper.selectOne(umsMember);
+
+    }
+
+    @Override
+    public void addUmsMember(UmsMember umsMember) {
+
+        umsMemberMapper.insert(umsMember);
+
+    }
+
+    @Override
+    public void deleteUmsMember(String id) {
+
+        umsMemberMapper.deleteByPrimaryKey(id);
+
+    }
+
+    @Override
+    public void updateUmsMember(UmsMember umsMember) {
+
+        umsMemberMapper.updateByPrimaryKey(umsMember);
 
     }
 }
