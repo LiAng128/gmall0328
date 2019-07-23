@@ -1,8 +1,8 @@
-package com.liang.gmall.user.handler;
+package com.liang.gmall.user.controller;
 
-import com.liang.gmall.user.beans.UmsMember;
-import com.liang.gmall.user.service.UmsMemberService;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.alibaba.dubbo.config.annotation.Reference;
+import com.liang.gmal.service.UmsMemberService;
+import com.liang.gmall.beans.UmsMember;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,7 +13,7 @@ import java.util.List;
 @Controller
 public class UmsMemberHandler {
 
-    @Autowired
+    @Reference
     private UmsMemberService umsMemberService;
 
     @RequestMapping("/get/umsMember/by/id/{id}")

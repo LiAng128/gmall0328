@@ -1,11 +1,10 @@
 package com.liang.gmall.user.service.impl;
 
-
-import com.liang.gmall.user.beans.UmsMember;
+import com.alibaba.dubbo.config.annotation.Service;
+import com.liang.gmal.service.UmsMemberService;
+import com.liang.gmall.beans.UmsMember;
 import com.liang.gmall.user.mapper.UmsMemberMapper;
-import com.liang.gmall.user.service.UmsMemberService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 

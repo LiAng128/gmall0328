@@ -1,6 +1,6 @@
-package com.liang.gmall.user.service;
+package com.liang.gmal.service;
 
-import com.liang.gmall.user.beans.UmsMember;
+import com.liang.gmall.beans.UmsMember;
 
 import java.util.List;
 
