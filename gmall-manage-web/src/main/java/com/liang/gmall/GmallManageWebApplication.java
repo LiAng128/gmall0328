@@ -1,4 +1,4 @@
-package com.liang.gmall.manage;
+package com.liang.gmall;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -1,14 +1,8 @@
 package com.liang.gmall.manage.service.impl;
 
 import com.alibaba.dubbo.config.annotation.Service;
-import com.liang.gmall.beans.PmsBaseSaleAttr;
-import com.liang.gmall.beans.PmsProductInfo;
-import com.liang.gmall.beans.PmsProductSaleAttr;
-import com.liang.gmall.beans.PmsProductSaleAttrValue;
-import com.liang.gmall.manage.mapper.PmsBaseSaleAttrMapper;
-import com.liang.gmall.manage.mapper.PmsProductInfoMapper;
-import com.liang.gmall.manage.mapper.PmsProductSaleAttrMapper;
-import com.liang.gmall.manage.mapper.PmsProductSaleAttrValueMapper;
+import com.liang.gmall.beans.*;
+import com.liang.gmall.manage.mapper.*;
 import com.liang.gmall.service.SpuService;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -29,6 +23,9 @@ public class SpuServiceImpl implements SpuService {
 
     @Autowired
     private PmsProductSaleAttrValueMapper pmsProductSaleAttrValueMapper;
+
+    @Autowired
+    private PmsProductImageMapper pmsProductImageMapper;
 
     @Override
     public List<PmsProductInfo> getSpuList(String catalog3Id) {
@@ -88,6 +85,17 @@ public class SpuServiceImpl implements SpuService {
                 pmsProductSaleAttrValueMapper.insertSelective(saleAttrValue);
 
             }
+
+        }
+
+
+        List<PmsProductImage> spuImageList = pmsProductInfo.getSpuImageList();
+
+        for (PmsProductImage pmsProductImage : spuImageList) {
+
+            pmsProductImage.setProductId(productInfoId);
+
+            pmsProductImageMapper.insertSelective(pmsProductImage);
 
         }
 
