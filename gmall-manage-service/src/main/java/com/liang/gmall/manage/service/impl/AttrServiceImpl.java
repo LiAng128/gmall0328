@@ -36,6 +36,20 @@ public class AttrServiceImpl implements AttrService {
 
         List<PmsBaseAttrInfo> pmsBaseAttrInfos = attrInfoMapper.select(pmsBaseAttrInfo);
 
+        for (PmsBaseAttrInfo baseAttrInfo : pmsBaseAttrInfos) {
+
+            String baseAttrInfoId = baseAttrInfo.getId();
+
+            PmsBaseAttrValue baseAttrValue = new PmsBaseAttrValue();
+
+            baseAttrValue.setAttrId(baseAttrInfoId);
+
+            List<PmsBaseAttrValue> pmsBaseAttrValues = pmsBaseAttrValueMapper.select(baseAttrValue);
+
+            baseAttrInfo.setAttrValueList(pmsBaseAttrValues);
+
+        }
+
         return pmsBaseAttrInfos;
     }
 

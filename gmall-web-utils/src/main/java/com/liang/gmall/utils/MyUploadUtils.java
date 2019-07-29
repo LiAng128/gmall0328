@@ -42,7 +42,7 @@ public class MyUploadUtils {
 
         String[] jpgs = null;
         try {
-            jpgs = storageClient.upload_file(originalFilename.getBytes(), ext_name, null);
+            jpgs = storageClient.upload_file(file.getBytes(), ext_name, null);
         } catch (IOException e) {
             e.printStackTrace();
         } catch (MyException e) {
